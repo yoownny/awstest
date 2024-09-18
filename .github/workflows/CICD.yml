@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir -p ./src/main/resources  # 디렉토리 생성
           echo ${{ secrets.APPLICATION_SECRET }} | base64 --decode > ./src/main/resources/application_secret.yml
-          chmod +x ./gradlew
+          chmod 777 ./gradlew
           ./gradlew clean build -x test
 
       - name: Login to DockerHub
