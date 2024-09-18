@@ -55,7 +55,7 @@ spring:
     activate:
       on-profile: blue
 server:
-  port: 8081
+  port: 8080
   serverAddress: 13.124.147.46
 serverName: blue_server
 
@@ -66,7 +66,7 @@ spring:
     activate:
       on-profile: green
 server:
-  port: 8082
+  port: 8081
   serverAddress: 13.124.147.46
 serverName: green_server
 

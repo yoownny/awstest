@@ -83,3 +83,6 @@ jar {
 		)
 	}
 }
+springBoot {
+	mainClass = 'com.potato.balbambalbam.BalbambalbamApplication'
+}

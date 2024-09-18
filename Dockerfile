@@ -8,4 +8,4 @@
 FROM amazoncorretto:21-alpine-jdk
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-cp", "app.jar", "com.potato.balbambalbam.BalbambalbamApplication"]
