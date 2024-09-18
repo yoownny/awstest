@@ -64,7 +64,8 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((auth) -> auth.anyRequest().permitAll());
                         /*.requestMatchers("/login","/users").permitAll()
-                        .anyRequest().authenticated());*/
+                        .anyRequest().authenticated()
+                        .antMatchers("/he","/env").permitAll());*/
 
         //jwt 필터 추가
         http

@@ -9,5 +9,4 @@ public class BalbambalbamApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BalbambalbamApplication.class, args);
 	}
-
 }

@@ -64,3 +64,14 @@ bootJar{
 	archiveVersion = '1.1.0'
 	exclude '**/application-local.properties'
 }
+
+tasks.named('processResources') {
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE // 중복 파일 포함 처리
+	from(sourceSets.main.resources.srcDirs) {
+		include '**/*.yml'
+	}
+}
+
+bootRun {
+	args = ['--spring.config.location=classpath:/application.yml,classpath:/application-secret.yml']
+}

@@ -1,0 +1,72 @@
+# 기존 설정
+spring:
+  application:
+    name: balbambalbam
+
+  config:
+    import:
+      - application-secret.yml
+
+  servlet:
+    multipart:
+      max-file-size: 3MB
+
+  profiles:
+    active: local
+    group:
+      local: local, common, secret
+      blue: blue, common, secret
+      green: green, common, secret
+
+  mvc:
+    log-resolved-exception: false
+
+# 서버 공통 설정
+server:
+  env: blue
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 1024
+
+logging:
+  level:
+    root: info
+
+# Local 프로파일 설정
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+server:
+  port: 8080
+  serverAddress: localhost
+serverName: local_server
+
+# Blue 프로파일 설정
+---
+spring:
+  config:
+    activate:
+      on-profile: blue
+server:
+  port: 8080
+  serverAddress: 13.124.147.46
+serverName: blue_server
+
+# Green 프로파일 설정
+---
+spring:
+  config:
+    activate:
+      on-profile: green
+server:
+  port: 8081
+  serverAddress: 13.124.147.46
+serverName: green_server
+
