@@ -73,8 +73,12 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script_stop: true
           script: |
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/awstest:latest
-            sudo docker-compose -f docker-compose-${{env.TARGET_UPSTREAM}}.yml up -d
+              sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/awstest:latest
+              sudo docker-compose -f docker-compose-${{env.TARGET_UPSTREAM}}.yml down --remove-orphans
+              sudo docker system prune -f
+              for i in {1..3}; do
+                  sudo docker-compose -f docker-compose-${{env.TARGET_UPSTREAM}}.yml up -d --remove-orphans && break || sleep 10
+              done
       
       - name: Check deploy server URL
         uses: jtalk/url-health-check-action@v3
