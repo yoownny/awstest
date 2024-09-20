@@ -45,6 +45,7 @@ spring:
       on-profile: local
 server:
   port: 8080
+  address: 0.0.0.0
   serverAddress: localhost
 serverName: local_server
 
@@ -56,6 +57,7 @@ spring:
       on-profile: blue
 server:
   port: 8080
+  address: 0.0.0.0
   serverAddress: 13.124.147.46
 serverName: blue_server
 
@@ -67,6 +69,7 @@ spring:
       on-profile: green
 server:
   port: 8081
+  address: 0.0.0.0
   serverAddress: 13.124.147.46
 serverName: green_server
 
